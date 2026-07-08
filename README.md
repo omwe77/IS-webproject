@@ -370,9 +370,6 @@ Introduction to Information Systems Coursework
 
 Islington College
 
-GitHub: https://github.com/yourusername
-
-Email: [your-email@example.com](mailto:your-email@example.com)
 
 ---
 
