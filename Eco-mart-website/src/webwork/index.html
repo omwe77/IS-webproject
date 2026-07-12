@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eco-mart| Home</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      /* Home page internal styles */
+      .product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; padding: 20px; }
+      .product-img { height: 160px; object-fit: cover; border-radius: 8px; }
+      .product-card .price { font-weight: 700; color: var(--accent); margin-top: 8px; }
+      .product-card p { color: var(--muted); }
+      /*  using inline styles  */
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Eco<span>Mart</span></div>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="pages/products.html">Products</a></li>
+            <li><a href="pages/blog.html">Blog</a></li>
+            <li><a href="pages/research.html">Research</a></li>
+            <li><a href="pages/about-us.html">About Us</a></li>
+            <li><a href="index.html" class="home-icon" title="Go to Home">🏠</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Sustainable Products for Everyday Life</h1>
+        <p>Eco-friendly choices that care for the planet.</p>
+        <a href="pages/products.html" class="btn-primary">shop now</a>
+    </div>
+</section>
+
+<div class="welcome-section">
+<h1>Welcome to Eco-Mart</h1>
+<p>Hey there! We're on a mission to show you that choosing sustainable products doesn't have to be complicated, expensive, or feel like a sacrifice. We're the best eco-friendly alternatives for everyday life—whether that's reducing waste or supporting businesses that actually care about the planet. Every single product we feature has been personally vetted for quality, durability, and real environmental impact. Join us in this journey—sustainable choices, multiplied across many people, create the kind of change our planet desperately needs. Let's do this together! 💚</p>
+</div>
+
+<section class="products">
+    <h2>Featured Products</h2>
+
+    
+      <!-- Products Grid -->
+      <div class="product-grid">
+
+        <div class="product-card">
+            <img src="images/Organic cotton T-shirts.jpg" class="product-img" alt="Organic Cotton T-Shirt">
+            <h3>Organic Cotton T-Shirt</h3>
+            <p class="price">Rs. 1,499</p>
+            <p>Soft, breathable, and ethically made.</p>
+            <button class="add-to-cart btn-primary" data-id="organic-tshirt" data-name="Organic Cotton T-Shirt" data-price="1499" data-img="images/Organic cotton T-shirts.jpg">Add to Cart</button>
+        </div>
+
+        <div class="product-card">
+            <img src="images/paint brush.webp" class="product-img" alt="Eco Paint Brush">
+            <h3>Eco Paint Brush</h3>
+            <p class="price">Rs. 349</p>
+            <p>Durable brush with sustainably sourced bristles.</p>
+            <button class="add-to-cart btn-primary" data-id="eco-paint-brush" data-name="Eco Paint Brush" data-price="349" data-img="images/paint brush.webp">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="images/paper cups.jpg" class="product-img" alt="Compostable Paper Cups">
+            <h3>Compostable Paper Cups</h3>
+            <p class="price">Rs. 299</p>
+            <p>Biodegradable cups for events and everyday use.</p>
+            <button class="add-to-cart btn-primary" data-id="paper-cups" data-name="Compostable Paper Cups" data-price="299" data-img="images/paper cups.jpg">Add to Cart</button>
+        </div>
+
+
+        <div class="product-card">
+            <img src="images/basic items.jpg" class="product-img" alt="Eco Essentials Kit">
+            <h3>Eco Essentials Kit</h3>
+            <p class="price">Rs. 999</p>
+            <p>A curated kit of everyday sustainable essentials (home-only special).</p>
+            <button class="add-to-cart btn-primary" data-id="eco-essentials-kit" data-name="Eco Essentials Kit" data-price="999" data-img="images/basic items.jpg">Add to Cart</button>
+        </div>
+
+
+
+      </div>
+</section>
+
+<!-- footer part -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3>Eco-mart</h3>
+      <p>Providing sustainable products for a better planet. Eco-friendly, natural, and ethically sourced.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="pages/products.html">Products</a></li>
+        <li><a href="pages/blog.html">Blog</a></li>
+        <li><a href="pages/research.html">Research</a></li>
+        <li><a href="pages/about-us.html">About Us</a></li>
+        
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h4>Contact Us</h4>
+      <p>Email: support@Eco-mart.com</p>
+      <p>Phone: +977-123456789</p>
+      <p>Address: Kathmandu, Nepal</p>
+    </div>
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <a href="#">🌐</a>
+      <a href="#">📘</a>
+      <a href="#">📸</a>
+      <a href="#">🐦</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Eco-mart. All rights reserved.
+  </div>
+</footer>
+<!-- Product add to cart for home page -->
+  <script src="js/cart.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/home-cart.js"></script>
+  <script src="js/hero-rotator.js"></script>
+  <script src="js/cart-widget.js"></script>
+</html>
