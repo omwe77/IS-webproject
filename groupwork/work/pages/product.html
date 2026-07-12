@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eco-Mart | Product</title>
+  <link rel="stylesheet" href="../css/style.css?v=2">
+
+</head>
+<body>
+
+  <!-- NAVIGATION (matches other pages) -->
+  <header>
+    <div class="logo">Eco<span>Mart</span></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="../index.html" class="home-icon" title="Go to Home">🏠</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contact-header">
+    <h1>Product Details</h1>
+    <p>Discover the details of this eco-friendly product.</p>
+  </section>
+
+  <!-- hero-rotator removed on this page per project configuration -->
+
+  <!-- PRODUCT MAIN -->
+  <script src="../js/cart-widget.js"></script>
+  <script>
+  // For: product page (pages/product.html)
+  
+  // qs - get URL param
+  function qs(key){ return new URLSearchParams(location.search).get(key); }
+  
+  // Load product data and populate page elements
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const id = qs('id');
+    const p = window.getProduct ? window.getProduct(id) : null;
+    
+    // Handle product not found error
+    if(!id || !p){
+      document.getElementById('prod-name').textContent = 'Product not found';
+      document.getElementById('prod-desc').textContent = 'Sorry, this product does not exist.';
+      document.getElementById('prod-price').textContent = '0';
+      document.getElementById('prod-img').src = (window.resolveImg ? window.resolveImg('/images/backgroundimage.png') : '/images/backgroundimage.png');
+      document.getElementById('add-to-cart').disabled = true;
+      return;
+    }
+    
+    // Populate product details on page
+    document.getElementById('prod-name').textContent = p.name;
+    document.getElementById('prod-desc').textContent = p.desc;
+    document.getElementById('prod-price').innerHTML = (p.discount && p.discount > 0) ? `<span class="orig-price">Rs. ${p.price}</span> <span class="sale-price">Rs. ${p.salePrice}</span>` : `Rs. ${p.price}`;
+    document.getElementById('prod-img').src = (window.resolveImg ? window.resolveImg(p.img) : p.img);
+    document.getElementById('prod-img').alt = p.name;
+    
+    // Show product benefits if available
+    if(p.benefits){
+      document.getElementById('prod-benefits').innerHTML = `<strong>Benefits:</strong><br>${p.benefits}`;
+    }
+
+    // qty controls (+ / -)
+    let qty = 1;
+    const qtyEl = document.getElementById('qty');
+    qtyEl.textContent = qty;
+    document.getElementById('inc').addEventListener('click', ()=>{ 
+      qty++; 
+      qtyEl.textContent = qty; 
+    });
+    document.getElementById('dec').addEventListener('click', ()=>{ 
+      qty = Math.max(1, qty-1); 
+      qtyEl.textContent = qty; 
+    });
+
+    // add-to-cart -> redirect to cart.html
+    document.getElementById('add-to-cart').addEventListener('click', ()=>{
+      const params = new URLSearchParams();
+      params.set('id', id);
+      params.set('qty', qty);
+      window.location.href = 'cart.html?' + params.toString();
+    });
+  });
+  </script>
+  <main class="product-page">
+    <div class="product-detail-container">
+      <div class="product-image-container">
+        <img id="prod-img" src="../images/backgroundimage.png" alt="Product image">
+      </div>
+
+      <div class="product-details-container">
+        <h1 id="prod-name">Product Name</h1>
+        <p id="prod-desc">Discover what makes this product special.</p>
+
+        <p id="prod-benefits" style="font-size:14px; color:var(--muted); margin:15px 0; line-height:1.6;"></p>
+
+        <p class="product-price"><strong>Rs. <span id="prod-price">0</span></strong></p>
+
+        <div class="quantity-controls">
+          <button id="dec" class="qty-btn qty-decrease">−</button>
+          <div id="qty" class="qty-display">1</div>
+          <button id="inc" class="qty-btn qty-increase">+</button>
+        </div>
+
+        <button id="add-to-cart" class="btn-primary">Add to Cart</button>
+
+        <p id="prod-notes">💚 <strong>Free Shipping:</strong> On orders over Rs. 1,500. We care about getting products to you in style while minimizing our environmental impact.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER (same style) -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>Eco-mart</h3>
+        <p>Providing sustainable products for a better planet. Eco-friendly, natural, and ethically sourced.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+     
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p>Email: support@Eco-mart.com</p>
+        <p>Phone: +977-123456789</p>
+        <p>Address: Kathmandu, Nepal</p>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <a href="#">🌐</a>
+        <a href="#">📘</a>
+        <a href="#">📸</a>
+        <a href="#">🐦</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Eco-mart. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Dynamic cart/product scripts removed from this page per project configuration -->
+</body>
+</html>

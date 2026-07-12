@@ -1,0 +1,1747 @@
+/* GLOBAL STYLES */
+:root{ --bg: #eef4ea; --text: #2a3a31; --accent: #0f8395; --accent-dark: #0d6a77; --accent-darker: #0a5360; --muted: #567; --light-green: #9fe5bc; --cta: #ff6b35; --cta-dark: #e55a24; --sale: #c62828; --danger: #e74c3c; --surface: #f0f0f0; --border: #ddd; --muted-bg: #f5f5f5; --muted-2: #bbb; --muted-3: #999; --border-light: #e8e8e8; --footer-dark: #224230; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text);
+    line-height: 1.3;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: var(--accent-dark);
+}
+
+/* --- CONTAINER & LAYOUT --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 11 - HEADER & NAVIGATION */
+/* Applies to: ALL PAGES (sticky header at top) */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--light-green);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    z-index: 100;
+    position: static; /* non-sticky header */
+}
+
+
+.home-icon {
+    font-size: 28px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    margin-top: -8px;
+}
+
+.home-icon:hover {
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(1.1);
+}
+
+.logo { 
+    font-size: 28px; 
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.logo span { 
+    color: var(--accent); 
+}
+
+.nav-links { 
+    list-style: none; 
+    display: flex; 
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* --- RESPONSIVE NAVIGATION --- */
+
+/* 21 - HERO SECTIONS */
+
+/* Unified hero size for all pages (excludes contact header) */
+.hero,
+.blog-hero,
+.products-hero,
+.about-hero,
+.research-header {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    min-height: 50vh; /* consistent height across pages */
+    height: 50vh; /* enforce exact viewport-based height (fixes home) */
+    padding: 60px 30px; /* consistent spacing */
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Dark overlay for text readability */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 0;
+}
+
+.hero-text {
+    max-width: 800px;
+    padding: 40px 30px;
+    position: relative;
+    z-index: 1;
+    
+}
+
+
+.hero-text h1 {
+    font-size: 54px;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+    text-shadow: 3px 3px 10px rgba(0,0,0,0.7);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+.hero-text p {
+    font-size: 22px;
+    margin-bottom: 35px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* unified rules above handle hero sizing and spacing */
+
+/* Overlay for text readability on all hero sections */
+.blog-hero::before,
+.products-hero::before,
+.about-hero::before,
+.research-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 0;
+}
+
+.blog-hero h1,
+.blog-hero p,
+.products-hero h1,
+.products-hero p,
+.about-hero h1,
+.about-hero p,
+.research-header h1,
+.research-header p {
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+/* Contact header - light background */
+.contact-header { 
+    background: var(--muted-bg);
+    color: var(--text);
+    padding: 40px 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    min-height: auto;
+}
+
+.contact-header h1,
+.contact-header p {
+    text-shadow: none;
+}
+
+.blog-hero h1,
+.products-hero h1,
+.about-hero h1,
+.research-header h1,
+.contact-header h1 {
+    font-size: 40px;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+}
+
+.contact-header h1 {
+    text-shadow: none;
+    color: var(--text);
+}
+
+.blog-hero p,
+.products-hero p,
+.about-hero p,
+.research-header p,
+.contact-header p {
+    font-size: 18px;
+    margin: 0;
+    max-width: 600px;
+}
+
+.contact-header p {
+    color: var(--muted);
+    text-shadow: none;
+    font-size: 16px;
+}
+
+.products-hero {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), var(--light-green);
+}
+
+.about-hero {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), var(--light-green);
+}
+
+.research-header,
+.contact-header {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), var(--light-green);
+}
+
+/*  BUTTONS */
+/* Applies to: ALL PAGES */
+   
+.btn-primary {
+    background-color: var(--cta);
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: var(--cta-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    padding: 10px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.btn-outline:hover {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* PAGE SPECIFIC: ABOUT US */
+/* Applies to: pages/about-us.html ONLY */
+.about-details {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.about-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 280px;
+    transition: all 0.3s ease;
+}
+
+.about-card:hover {
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+}
+
+.about-card h2 {
+    color: var(--accent);
+    font-size: 24px;
+    margin-top: 0;
+}
+
+.team-section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-section h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: var(--text);
+}
+
+.team-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 28px;
+    padding: 20px;
+}
+
+.team-card { 
+    background: white; 
+    padding: 24px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transform: translateY(-8px);
+}
+
+.team-card h3 {
+    color: var(--accent);
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+}
+
+.team-skills, 
+.team-more {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 8px 0;
+}
+
+.cv-actions {
+    margin-top: 15px;
+}
+
+/* Team card: avatar-first layout */
+.team-avatar {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.team-role {
+    background: var(--bg);
+    color: var(--accent);
+    text-align: center;
+    padding: 8px 10px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.team-content {
+    display: none;
+    transition: max-height 0.28s ease, opacity 0.28s ease;
+    opacity: 0;
+}
+
+.team-card.expanded .team-content {
+    display: block;
+    opacity: 1;
+}
+
+/* PAGE SPECIFIC: PRODUCTS */
+/* Applies to: pages/products.html ONLY
+   Sections: Filter area (search, price slider, sort), product grid */
+section.products {
+    padding: 50px 20px;
+    background: white;
+    margin: 40px 0;
+}
+
+section.products h2 {
+    text-align: center;
+    font-size: 36px;
+    color: var(--text);
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+/* Products page specific styles */
+section.products .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section.products .product-card {
+    background: white;
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid var(--surface);
+    cursor: pointer;
+}
+
+section.products .product-card:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    transform: translateY(-6px);
+}
+
+section.products .product-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    transition: transform 0.3s ease;
+}
+
+section.products .product-card:hover .product-img {
+    transform: scale(1.06);
+}
+
+section.products .product-card h3 {
+    color: var(--text);
+    font-size: 17px;
+    margin: 12px 0 8px 0;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+section.products .price {
+    color: var(--accent);
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+section.products .product-card p {
+    font-size: 14px;
+    color: var(--muted);
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+section.products .add-cart {
+    background-color: var(--accent);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 600;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+section.products .add-cart:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 131, 149, 0.3);
+}
+
+/* --- CART POPUP STYLING --- */
+/* Applies to: ALL PAGES (when user clicks "Add to Cart")*/
+.cart-popup-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cart-popup-backdrop.cart-popup-enter {
+    opacity: 1;
+}
+
+.cart-popup-box {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    display: flex;
+    gap: 25px;
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.cart-popup-box.cart-popup-enter {
+    transform: scale(1);
+}
+
+.cart-popup-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.cart-popup-meta {
+    flex: 1;
+}
+
+.cart-popup-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.cart-popup-price {
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.cart-popup-qty {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.qty-btn {
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.qty-btn:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.cart-popup-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.cart-popup-actions button,
+.cart-popup-actions a {
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* CART PAGE */
+/* Applies to: pages/cart.html ONLY */
+.cart-main {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 30px;
+}
+
+.cart-main h1 {
+    text-align: center;
+    color: var(--text);
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+#cartArea {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 30px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    min-height: 200px;
+}
+
+.cart-row {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-light);
+    align-items: start;
+}
+
+.cart-row:last-child {
+    border-bottom: none;
+}
+
+.cart-row img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    max-height: 280px;
+}
+
+.cart-row h2 {
+    font-size: 22px;
+    color: var(--text);
+    margin: 0 0 10px 0;
+}
+
+.cart-row p {
+    margin: 8px 0;
+    color: var(--muted);
+}
+
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.qty-controls button {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.qty-controls button:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.qty-val {
+    min-width: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.remove-btn {
+    margin-top: 10px !important;
+}
+
+.cart-actions {
+    text-align: center;
+    margin: 40px 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Utility classes used by JS-rendered content */
+.toast { position: fixed; right: 20px; bottom: 20px; background: var(--accent); color: #fff; padding: 10px 14px; border-radius: 8px; z-index: 10000; }
+.empty-state { grid-column: 1 / -1; text-align: center; padding: 18px 12px; }
+.benefits-inline { font-size: 13px; color: var(--muted); margin: 8px 0; line-height: 1.5; }
+.benefits-small { font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.4; }
+.cart-flex { flex: 1; }
+.row-controls { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.subtotal-margin { margin-left: 18px; }
+.cart-total { max-width: 900px; margin: 18px auto; text-align: right; padding: 0 20px; }
+.total-actions { display: flex; gap: 10px; justify-content: flex-end; }
+.btn-temp { opacity: 0.7 !important; }
+.prod-desc { color: var(--text); }
+.price-strong { font-weight: 700; }
+.hidden { display: none !important; }
+.mt-10 { margin-top: 10px; }
+
+.cart-actions button,
+.cart-actions a {
+    padding: 12px 30px;
+}
+
+/* --- CONTACT FORM --- */
+/* Applies to: pages/about-us.html (contact form section) + pages/cart.html potentially*/
+.contact-main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.contact-info {
+    background: var(--muted-bg);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.contact-info h3 {
+    color: var(--accent);
+    font-size: 22px;
+    margin-top: 0;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    color: #2a3a31;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2a3a31;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(15, 131, 149, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.error-message {
+    color: var(--danger);
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+}
+
+/* --- PAGE SPECIFIC: BLOG --- */
+/* Applies to: pages/blog.html ONLY */
+.blog-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+main.content {
+    grid-column: 1 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 150px !important;
+    gap: 60px !important;
+    align-items: stretch !important; /* ensure both columns match height */
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+
+.articles-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 0;
+    margin-left: -20px;
+    padding-left: 20px;
+    width: 100%;
+    align-self: stretch; /* make wrapper fill available grid row height */
+    min-height: 100%;
+    padding-bottom: 36px; /* fine-tuned to match adjusted sidebar */
+}
+
+.sidebar {
+    grid-column: auto;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--bg) 100%);
+    padding: 12px 12px; /* reduced padding to lower total height */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--accent);
+    height: auto; /* allow grid to determine height so columns can match */
+    margin-right: 12px; /* reduced gap to content */
+    align-self: stretch; /* ensure sidebar fills grid row height */
+    box-sizing: border-box;
+} 
+
+.sidebar h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 12px 0; /* tightened */
+    text-align: center;
+    padding-bottom: 8px; /* tightened */
+    border-bottom: 2px solid var(--light-green);
+} 
+
+.sidebar-products {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* reduced gap to compact list */
+    padding-bottom: 8px;
+} 
+
+.side-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px; /* reduced padding */
+    background: white;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    border: 1px solid var(--border-light);
+    min-width: 100px; /* narrower */
+    flex-shrink: 0;
+    justify-content: center;
+} 
+
+.side-product:hover {
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    transform: translateY(-3px);
+    border-color: var(--accent);
+}
+
+.side-product img {
+    width: 84px; /* reduced to lower sidebar height */
+    height: 84px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block; /* avoid inline image baseline issues */
+    max-width: 100%;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+} 
+
+.side-product:hover img {
+    transform: scale(1.08);
+}
+
+.side-product p {
+    font-size: 10px;
+    color: #2a3a31;
+    margin: 0;
+    line-height: 1.3;
+    font-weight: 500;
+}
+    
+
+.side-product strong {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    display: block;
+    margin-top: 4px;
+}
+
+article {
+    background: white;
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+article.article-with-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.article-text {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* --- BLOG: CONCLUSION SECTION --- */
+.blog-conclusion {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    border-left: 6px solid var(--light-green);
+}
+.blog-conclusion h2 {
+    color: var(--accent);
+    margin-top: 0;
+    font-size: 22px;
+}
+.blog-conclusion p {
+    color: #2a3a31;
+    margin: 0.8rem 0 0 0;
+}
+
+.article-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+article h3 {
+    color: var(--accent);
+    font-size: 24px;
+    margin-top: 0;
+    font-weight: 700;
+}
+
+article .meta {
+    color: var(--muted-3);
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/*  PAGE SPECIFIC: RESEARCH & CONTACT --- */
+/* Applies to: pages/research.html + contact form section */
+.research-main section, 
+.contact-main section { 
+    margin-bottom: 3rem;
+}
+
+.research-main h2,
+.research-main h3 {
+    color: var(--accent);
+}
+
+.comparison-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background: white;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.comparison-table td, 
+.comparison-table th { 
+    padding: 15px 12px; 
+    border-bottom: 1px solid #eee;
+    text-align: left;
+}
+
+.comparison-table th {
+    background-color: var(--light-green);
+    font-weight: bold;
+    color: #2a3a31;
+}
+
+.comparison-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Footer Styles */
+/* Applies to: ALL PAGES (bottom section) */
+footer { 
+    background-color: var(--footer-dark); 
+    color: white; 
+    padding: 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-container { 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px; 
+    margin: 0 auto 30px;
+}
+
+.footer-about,
+.footer-links,
+.footer-contact,
+.footer-social {
+    flex: 1;
+}
+
+.footer-about h3,
+.footer-links h4,
+.footer-contact h4,
+.footer-social h4 {
+    color: var(--light-green);
+    margin-top: 0;
+    font-size: 16px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a,
+.footer-contact a,
+.footer-social a {
+    color: var(--muted-2);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover,
+.footer-social a:hover {
+    color: var(--light-green);
+}
+
+.footer-contact p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #bbb;
+}
+
+.footer-social a {
+    display: inline-block;
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+    font-size: 14px;
+    color: #999;
+}
+
+
+/* --- PRODUCT PAGE STYLING --- */
+/* Applies to: pages/product.html (single product detail page) */
+.product-page {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+#prod-name {
+    color: #2a3a31;
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+#prod-img {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+#prod-img:hover {
+    transform: scale(1.02);
+}
+
+/* Home page - welcome section container */
+.welcome-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+.welcome-section h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.welcome-section p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+/* Home page - quick guide section */
+.quick-guide {
+    background: linear-gradient(135deg, #f0f7eb 0%, #eef4ea 100%);
+    padding: 30px 20px;
+    margin: 30px 0;
+    border-radius: 10px;
+    border-top: 4px solid var(--accent);
+    min-height: 40px;
+}
+
+/* Cart page - info text */
+.cart-info-text {
+    text-align: center;
+    color: var(--muted);
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+/* Team member role styling */
+.team-member-role {
+    font-weight: 400;
+    color: #567;
+}
+
+/* Contact form intro */
+.contact-form-intro {
+    color: #567;
+    margin-bottom: 1.5rem;
+    font-size: 15px;
+}
+
+/* Form labels */
+.required-indicator {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+/* Contact section title */
+.contact-section-title {
+    margin-top: 3rem;
+    font-weight: 700;
+}
+
+/* Contact section description */
+.contact-section-desc {
+    color: #567;
+    margin-bottom: 1.5rem;
+    font-size: 15px;
+}
+
+/* Product details container */
+.product-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Quantity controls styling */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.qty-btn {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(15, 131, 149, 0.3);
+} 
+
+.qty-btn:hover {
+    background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent-darker) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(15, 131, 149, 0.4);
+} 
+
+.qty-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(15, 131, 149, 0.3);
+}
+
+.qty-display {
+    min-width: 60px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    background: var(--muted-bg);
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px solid #e0e0e0;
+}
+
+/* Explore more button styling */
+.btn-outline.explore-more {
+    margin-left: 0;
+}
+/* Help Container Styles */
+.help-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 2px solid #0f8395;
+    border-radius: 12px;
+    background: #f9fdfb;
+}
+
+.help-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.help-card {
+    display: flex;
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 2px 8px rgba(15, 131, 149, 0.15);
+    transition: box-shadow 0.3s ease;
+}
+
+.help-card:hover {
+    box-shadow: 0 4px 12px rgba(15, 131, 149, 0.25);
+}
+
+.help-reason {
+    flex: 0 0 40%;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.help-description {
+    flex: 0 0 60%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #567;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Form Container Styles */
+.form-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 2px solid #0f8395;
+    border-radius: 12px;
+    background: #f9fdfb;
+}
+
+.form-container section h2 {
+    color: #2a3a31;
+    margin-bottom: 10px;
+}
+
+/* Research Container Styles */
+.research-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 30px;
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    background: #f9fdfb;
+    box-shadow: 0 2px 8px rgba(15, 131, 149, 0.15);
+}
+
+.research-container section h2 {
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 0;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+/* Website Reference Styles */
+.website-reference {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s ease;
+}
+
+.website-reference:hover {
+    box-shadow: 0 4px 12px rgba(15, 131, 149, 0.2);
+}
+
+.website-reference h3 {
+    color: var(--accent);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.website-reference p {
+    margin: 10px 0;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.website-reference a {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* --- PAGE SPECIFIC: PRODUCTS PAGE ENHANCED FILTERING --- */
+
+
+.products-container {
+  max-width: 1400px;
+  margin: 50px auto;
+  padding: 40px 20px;
+}
+
+.products-intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.products-intro h2 {
+  font-size: 38px;
+  color: #2a3a31;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.products-intro p {
+  font-size: 18px;
+  color: #567;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 25px;
+  border: 2px solid #ddd;
+  background: white;
+  color: #2a3a31;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+.products-wrapper {
+  background: white;
+  padding: 40px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+#productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: white;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card:hover {
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  transform: translateY(-8px);
+  border-color: #0f8395;
+}
+
+.product-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.08);
+}
+
+.product-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.product-info {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card h3 {
+  font-size: 16px;
+  color: #2a3a31;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  line-height: 1.3;
+  min-height: 40px;
+}
+
+.product-desc {
+  font-size: 13px;
+  color: #567;
+  margin-bottom: 15px;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.product-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Sale price visuals */
+.sale-price {
+  color: var(--sale);
+  font-weight: 800;
+}
+.sale-badge {
+  background: var(--sale);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-left: 8px;
+  font-weight: 700;
+}
+.orig-price {
+  text-decoration: line-through;
+  color: #777;
+  margin-right: 8px;
+}
+
+.product-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-view {
+  flex: 1;
+  padding: 10px 15px;
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-view:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-add {
+  flex: 1;
+  padding: 10px 15px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+} 
+
+.btn-add:hover {
+  background: #0d6a77;
+  box-shadow: 0 4px 12px rgba(15, 131, 149, 0.3);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: #567;
+}
+
+.empty-state h3 {
+  font-size: 24px;
+  color: #2a3a31;
+  margin-bottom: 10px;
+}
+
+  .products-wrapper {
+    padding: 20px 10px;
+  }
+
+/* --- MEMBER PROFILE PAGES (member1-5.html) --- */
+.member-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.member-content {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.member-img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.member-content h1 {
+  color: var(--accent);
+  font-size: 32px;
+  margin: 15px 0 5px 0;
+}
+
+.member-content h3 {
+  color: var(--cta);
+  font-size: 18px;
+  margin: 0 0 20px 0;
+}
+
+.member-content p {
+  color: #567;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+/* Floating cart widget (global) */
+.floating-cart {
+  position: fixed;
+  left: 18px;
+  bottom: 18px;
+  z-index: 99999;
+  font-family: Arial, sans-serif;
+}
+
+.floating-cart .cart-button {
+  background: #0f8395;
+  color: #fff;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.floating-cart .cart-badge {
+  background: var(--cta);
+  color: white;
+  padding: 2px 8px;
+  font-size: 12px;
+  border-radius: 999px;
+  min-width: 20px;
+  text-align: center;
+  display: inline-block;
+}
+
+.floating-cart .cart-preview {
+  display: block;
+  min-width: 260px;
+  max-width: 320px;
+  background: white;
+  color: #2a3a31;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  border-radius: 10px;
+  margin-top: 12px;
+  transform: translateY(12px);
+  transition: transform 0.18s ease, opacity 0.18s ease;
+  opacity: 1;
+  padding: 10px;
+  display: none;
+}
+
+.floating-cart .cart-preview[aria-hidden="false"] { display: block; }
+
+.cart-preview-head { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px }
+.cart-preview-body { max-height: 260px; overflow:auto; padding:6px 0 }
+.cart-items { list-style:none; padding:0; margin:0; }
+.cart-item { display:flex; justify-content:space-between; gap:12px; padding:8px 0; border-bottom:1px solid #f0f0f0 }
+.cart-item .item-meta { display:flex; flex-direction:column }
+.cart-total { padding-top:10px; text-align:right; font-weight:700 }
+
+.floating-cart .cart-preview .btn-outline { padding:8px 12px; display:inline-block; text-decoration:none; border:2px solid var(--accent); color:var(--accent); border-radius:6px }
+
+

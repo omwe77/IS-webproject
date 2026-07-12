@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eco-mart | Products</title>
+  <link rel="stylesheet" href="../css/style.css?v=3">
+</head>
+<body>
+
+  <header>
+    <div class="logo">Eco<span>Mart</span></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="products.html" class="active">Products</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="../index.html" class="home-icon" title="Go to Home">🏠</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="products-hero">
+    <h1>Shop Sustainable</h1>
+    <p>Discover eco-friendly products handpicked for quality, durability, and real environmental impact.</p>
+  </section>
+
+  <script src="../js/hero-rotator.js"></script>
+
+  <div class="products-container">
+    <div class="products-intro">
+      <h2>Our Collection</h2>
+      <p>Every product here has been carefully selected to meet our sustainability standards. From bamboo utensils to plant-based candles, find the perfect eco-friendly alternatives for your everyday life.</p>
+    </div>
+
+    <div class="products-wrapper">
+      <!-- Filter Section -->
+      <div style="padding: 20px; background: var(--muted-bg); border-radius: 12px; margin-bottom: 30px;">
+        <h3 style="color: var(--text); margin-top: 0; margin-bottom: 15px;">Filter Products</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <!-- Search Filter -->
+          <div>
+            <label style="display: block; font-weight: 600; color: var(--text); margin-bottom: 8px;">Search by Name</label>
+            <input type="text" id="searchFilter" placeholder="Search products..." style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px;">
+          </div>
+          <!-- Price Range Filter -->
+          <div>
+            <label style="display: block; font-weight: 600; color: var(--text); margin-bottom: 8px;">Max Price: Rs. <span id="priceValue">1000</span></label>
+            <input type="range" id="priceFilter" min="0" max="1000" value="1000" style="width: 100%; cursor: pointer;">
+          </div>
+          <!-- Sort Filter -->
+          <div>
+            <label style="display: block; font-weight: 600; color: var(--text); margin-bottom: 8px;">Sort By</label>
+            <select id="sortFilter" style="width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; cursor: pointer;">
+              <option value="none">Select option</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="name-a-z">Name: A to Z</option>
+              <option value="name-z-a">Name: Z to A</option>
+            </select>
+          </div>
+          <!-- Reset Button -->
+          <div style="display: flex; align-items: flex-end;">
+            <button id="resetFilter" style="width: 100%; padding: 10px; background: var(--accent); color: white; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.3s;">Reset Filters</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <!-- Products populated by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>Eco-mart</h3>
+        <p>Providing sustainable products for a better planet. Eco-friendly, natural, and ethically sourced.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="research.html">Research</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact Us</h4>
+        <p>Email: support@Eco-mart.com</p>
+        <p>Phone: +977-123456789</p>
+        <p>Address: Kathmandu, Nepal</p>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <a href="#">🌐</a>
+        <a href="#">📘</a>
+        <a href="#">📸</a>
+        <a href="#">🐦</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Eco-mart. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="../js/cart.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/products-page.js"></script>
+  <script src="../js/cart-widget.js"></script>
+</body>
+</html>
